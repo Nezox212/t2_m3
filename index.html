@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>REST и MockAPI</title>
 </head>
 <body>
-
-<div class="timer">10</div>
-<div class="buttons">
-<button id="start">start</button>
-<button id="stop">stop</button>
-<button id="reset">reset</button>
-</div>
-
-
-<div id="block"></div>
-
-
-
-
-
-<div class="userjson">
-    <div class="search">
-        <input type="text" id="loginInput" placeholder="Введите логин">
-        <button id="checkBtn">Проверить</button>
+<div class="wrapper">
+    <div class="controls">
+        <select id="completed">
+            <option value="">Все</option>
+            <option value="true">Прочитанные</option>
+            <option value="false">Не прочитанные</option>
+        </select>
+        <input id="search" placeholder="Поиск">
+        <select id="sortBy">
+            <option value=""> По году</option>
+            <option value="title">По названию</option>
+        </select>
+        <select id="order">
+            <option value="asc">По возрастанию</option>
+            <option value="desc">По убыванию</option>
+        </select>
+        <input id="limit" type="number" min="1" value="5">
     </div>
 
-    <div class="result">
-        <div id="userCard"></div>
-        <p id="message"></p>
-    </div>
+    <p class="url"></p>
+
+    <form>
+        <input name="title" placeholder="Новая книга" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <ul class="tasks">
+\    </ul>
+    <button class="load-more" hidden>Загрузить ещё</button>
 </div>
-<script src="main.js"></script>
+
+<script type="module" src="./main.js"></script>
 </body>
 </html>

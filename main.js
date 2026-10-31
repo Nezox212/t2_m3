@@ -1,289 +1,658 @@
-//1) Напишите функцию, которая проверяет, содержит ли строка только цифры. Используйте регулярные выражения
+// lesson 3.1
+
+
+//рег выражения
+
+// const test = '123 John 45 jacob 6 '
+// const regex = /\d/gi;
 //
-// пример:
-// const regExp = /Регулярные выражения/
+// //match | replace | test
 //
-// const containsOnlyDigits = (str) => {
-//     return // Ваш код
+// console.log(test.match(regex))
+//
+// const text = "Johnny"
+// const regex = /[jon]/ig
+// console.log(text.replace(regex, "*"))
+//
+// console.log(regex.test(text))
+
+
+
+
+
+
+
+//+ - 1>
+//* - 0>
+//? - 0 | 1
+
+
+
+//g
+//i
+//m
+//s
+
+
+// \d - 0-9 | D - !0-9
+// \w - words,digits, _ | W !
+// \s - space | S - !space
+
+
+//  CALLBACK FUNCTION
+
+// const func1 = (func) => {
+//     func()
 // }
 //
-// console.log(containsOnlyDigits("12345")); // Выведет true
-// console.log(containsOnlyDigits("12a45")); // Выведет false
+// const func2 = () => {
+//     console.log("its func2")
+// }
 //
-
-const regex = /^\d+$/
-const containsOnlyDigits = (str) => {
-    return  regex.test(str);
-}
-console.log(containsOnlyDigits("12345"))
-console.log(containsOnlyDigits("123a56"))
+// func1(func2)
 
 
-
-// 2) Напишите функцию, которая каждую секунду выводит в консоль сообщение "Прошла секунда". Используйте setInterval
+//рекурсия
 //
-// Пример вывода:
+// let num = 0;
+// const test = () => {
+//     num++
+//     console.log(num)
+//     if(num < 500){
+//         requestAnimationFrame(test)
+// }
 //
-//     console.log("Прошла секунда"); // 1
-// console.log("Прошла секунда"); // 2
-// console.log("Прошла секунда"); // 3
-
-let sec = 0;
-const timer = () => {
-        setInterval(() => {
-            console.log(`Прошла секунда`);
-            sec++
-        },1000)
-    };
-   timer();
+// }
+// test()
 
 
-//
-// 3) Вывести числа от 1 до 10 с интервалом в 1 секунду, затем остановить.
-//
-// Пример функции:
-//
-// const count = () => {
-//     let i = 1;
-//     const interval = setInterval( // Правильно продолжите... );
+
+
+// lesson 3.2
+
+
+
+//setInterval
+//setTimeout
+//clearInterval
+
+// const functionTest = () => {
+//     console.log("Hello World!");
 // }
 
-const timerToTen = () => {
+// setTimeout(() => {
+//     console.log("hello")
+// },1000)
 
-    let i = 1;
-    const interval = setInterval(() => {
-        if (i === 10) {clearInterval(interval);}
-        console.log(i);
-        i++
-    },1000)
+// let num = 0
+//
+//
+// // setInterval(functionTest,100)
+//
+// const interval = setInterval(() => {
+//     num++
+//     console.log("прошла " + num + " секунд")
+//     if (num === 5) {clearInterval(interval)}
+// },1000)
+//
+//
+// const box = document.querySelector('.box')
+// const  startBtn = document.querySelector('.start-btn')
+// const stopBtn = document.querySelector('.stop-btn')
+// let interval1 = null
+// startBtn.onclick = () => {
+//     if(interval1) return
+//     interval1 = setInterval(() => {
+//         box.style.opacity = box.style.opacity === 0 ? 1 : 0;
+//     },1000)
+//
+// }
+//
+// stopBtn.onclick = () => {
+//     clearInterval(interval1);
+//     interval1 = null
+//     box.style.opacity = 1;
+// }
 
+
+// event.stopPropagation()
+
+
+
+// ад колбеков
+//
+// const  logger = (user) => {
+//     let {username,desc} = user;
+//     console.log(`${username} - ${desc}`);
+// }
+// setTimeout(() => {
+//     const user = {
+//         username: 'john',
+//         desc: 'John Doe',
+//     }
+//     logger(user);
+//     setTimeout(() => {
+//         user.username = 'Andrew';
+//         user.desc = '1';
+//     },1000)
+//     logger(user);
+// },1500)
+
+// PROMISE
+//pending -- fulfilled | rejected
+// console.log(1)
+// setTimeout(()=>{
+//     console.log("timeOut");
+// })
+// new Promise((resolve, reject) => {
+//     console.log("promise console");
+//     resolve();
+// })
+//     .then(() => {
+//         console.log("promise complete");
+//     })
+// console.log(5)
+// const count = 1
+//
+// new Promise((res,rej) => {
+//     const user ={
+//         username: 'andrew',
+//         desc: 'hum',
+//
+//     }
+//     setTimeout(() => {
+//         logger(user)
+//        if(count === 1) {
+//            res(user)
+//        }
+//     },1500)
+// })
+//     .then(
+//         (user) => {return new Promise((res,rej) => {
+//             setTimeout(()=>{
+//                 user.username = 'MAX';
+//                 user.desc = 'woman';
+//                 logger(user)
+//                 res(user)
+//             },1500)
+//         })},
+//         (user) => {console.warn("error")}
+//     )
+// .then(
+//     (user) => {
+//         return new Promise((res,rej) => {
+//             setTimeout(()=>{
+//                 user.username = 'SOFIA';
+//                 user.desc = 'BLABLA';
+//                 logger(user)
+//                 rej("error")
+//             },1500)
+//         })
+//     },
+//     (user) => {
+// console.warn("error")
+//     }
+// )
+// .then(
+//     () => {},
+//     (text) => {
+//         console.warn("error")
+//     }
+// )
+
+// queueMicrotask(() => {
+//     console.log('queueMicrotask');
+// })\
+
+
+// all | allSettled | race | any
+// const delay = (seconds, flag, text) => {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             if(flag) reject("error");
+//             resolve(text);
+//         },seconds);
+//     });
+// }
+//
+// const promise1 = delay(1000,true,"first promise");
+// const promise2 = delay(2000,false,"second promise");
+//
+// Promise.allSettled([promise1, promise2])
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+//
+// Promise.any([promise1, promise2])
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// Promise.race([promise1, promise2])
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// Promise.all([promise1, promise2])
+//     .then((result) => {
+//         console.log(result);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+
+//------------------- 1
+
+//
+// console.log(1);
+//
+// setTimeout(() => {
+//     console.log(2);
+//     Promise.resolve().then(() => console.log(3));
+// }, 0);
+//
+// Promise.resolve().then(() => console.log(4));
+//
+// console.log(10);
+//
+// //--------------------- 4
+//
+// setTimeout(() => {
+//     console.log(2);
+//     queueMicrotask(() => console.log(6))
+//     setTimeout(() => {
+//         console.log(3);
+//         queueMicrotask(() => console.log(4))
+//     }, 1000);
+//
+// }, 1000);
+//
+// console.log(10)
+// setTimeout(function timeout() {
+//     console.log('Таймаут');
+// }, 0);
+//
+// let p = new Promise(function(resolve, reject) {
+//     console.log('Создание промиса');
+//     resolve();
+// });
+//
+// p.then(function(){
+//     console.log('Обработка промиса');
+// });
+//
+// console.log('Конец скрипта');
+//6
+// console.log(1);
+//
+// setTimeout(() => console.log(2));
+//
+// Promise.resolve().then(() => console.log(3));
+//
+// Promise.resolve().then(() => setTimeout(() => console.log(4)));
+//
+// Promise.resolve().then(() => console.log(5));
+//
+// setTimeout(() => console.log(6));
+//
+// console.log(7);
+// console.log(1);
+//
+// setTimeout(() => console.log(2));
+//
+// Promise.reject(3).catch((error) => {console.log(error)});
+//
+// new Promise(resolve => setTimeout(resolve)).then(() => console.log(4));
+//
+// Promise.resolve(5).then((data) => {console.log(data)});
+//
+// console.log(6);
+//
+// setTimeout(() => console.log(7),0);
+
+//try catch | finally
+//  const textContains = (text) => {
+//     try{
+//         if(text.length === 0 || !text){
+//             throw new Error("no text")
+//         };
+//         console.log(text);
+//     }catch(err){
+//         console.log("error:", err.message);
+//     }finally {
+//         console.log("end")
+//     }
+//  }
+//  textContains("text")
+
+
+
+
+
+//lesson 3.4
+
+//AJAX
+
+// XML
+
+//http
+
+//https
+
+// const func = () => {
+//     fetch("./json.json")
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data)
+//         });
+// }
+// func()
+
+
+// const func = async () => {
+//     const response = await fetch("json.json")
+//     const data = await response.json()
+//     console.log(data)
+// }
+// func()
+
+
+
+//lesson 5
+// const form = document.querySelector('form');
+// const emailInput = document.querySelector('#email');
+// const passwordInput = document.querySelector('#password');
+//
+//
+// const BASE_API = 'https://jsonplaceholder.typicode.com/posts';
+//
+// const getPosts = async() => {
+//     try{
+//         const response = await fetch(BASE_API);
+//         const data = await response.json();
+//         console.log(`Количество постов: ${data.length}`)
+//     }catch(error){
+//         console.warn(`Произошла ошибка`, error);
+//     }
+// }
+//
+// getPosts();
+//
+// const sendAsJson = async(payload) => {
+//     try{
+//         const response = await fetch(BASE_API, {
+//             method: "POST",
+//             body: JSON.stringify(payload)
+//         });
+//         const data = await response.json();
+//         console.log('Ответ от send JSON', data);
+//         await getPosts();
+//     }catch(error){
+//         console.warn(`Произошла ошибка при send JSON`, error);
+//     }
+// }
+//
+// const sendAsFormData = async(payload) => {
+//     try{
+//         const response = await fetch(BASE_API, {
+//             method: "POST",
+//             body: payload
+//         });
+//         const data = await response.json();
+//         console.log('Ответ от send Form Data', data);
+//         await getPosts();
+//     }catch(error){
+//         console.warn(`Произошла ошибка при send Form Data`, error);
+//     }
+// }
+//
+// form.addEventListener('submit', async(event) => {
+//     event.preventDefault();
+//     const mode = event.submitter.value;
+//     if(mode == 'json'){
+//         await sendAsJson({
+//             email: emailInput.value,
+//             password: passwordInput.value
+//         })
+//     }else{
+//         const formData = new FormData(form);
+//         await sendAsFormData(formData)
+//     }
+//     form.reset();
+// })
+
+
+//lesson6
+import { books_API, getBooks, createBook, updateBook, deleteBook } from './api.js';
+
+const completedSelect = document.querySelector('#completed');
+const searchInput = document.querySelector('#search');
+const sortBySelect = document.querySelector('#sortBy');
+const orderSelect = document.querySelector('#order');
+const limitInput = document.querySelector('#limit');
+const urlText = document.querySelector('.url');
+const list = document.querySelector('.tasks');
+const loadMoreBtn = document.querySelector('.load-more');
+const form = document.querySelector('form');
+
+let page = 1;
+let searchTimer;
+
+const getLimit = () => Math.max(1, Number(limitInput.value) || 5);
+
+const buildQuery = () => {
+    const query = new URLSearchParams();
+
+    if (completedSelect.value) query.set('isRead', completedSelect.value);
+
+    const search = searchInput.value.trim();
+    if (search) query.set('search', search);
+
+    query.set('sortBy', sortBySelect.value || 'year');
+    query.set('order', orderSelect.value);
+    query.set('page', page);
+    query.set('limit', getLimit());
+
+    return query;
+};
+
+const syncAddress = () => {
+    const params = new URLSearchParams();
+
+    if (completedSelect.value) params.set('completed', completedSelect.value);
+
+    const search = searchInput.value.trim();
+    if (search) params.set('search', search);
+
+    if (sortBySelect.value) params.set('sortBy', sortBySelect.value);
+    params.set('order', orderSelect.value);
+    params.set('limit', getLimit());
+
+    const pageUrl = new URL(window.location);
+    pageUrl.search = params.toString();
+
+    try {
+        history.replaceState({}, '', pageUrl);
+    } catch (err) {
+        console.warn('Не удалось обновить адрес страницы:', err.message);
+    }
+};
+
+const restoreFromAddress = () => {
+    const params = new URLSearchParams(window.location.search);
+
+    completedSelect.value = params.get('completed') ?? '';
+    searchInput.value = params.get('search') ?? '';
+    sortBySelect.value = params.get('sortBy') ?? '';
+    orderSelect.value = params.get('order') ?? 'asc';
+    limitInput.value = params.get('limit') ?? '5';
+};
+
+const showEmpty = () => {
+    list.innerHTML = '';
+
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'Ничего не найдено';
+
+    list.append(li);
+};
+
+const removeEmpty = () => {
+    list.querySelector('.empty')?.remove();
+};
+
+const createBookItem = (book) => {
+    const li = document.createElement('li');
+    li.dataset.id = book.id;
+
+    const title = document.createElement('h3');
+    title.textContent = book.title;
+
+    const author = document.createElement('p');
+    author.textContent = book.author;
+
+    const year = document.createElement('p');
+    year.textContent = book.year;
+
+    const status = document.createElement('p');
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.textContent = 'Удалить';
+
+    const showReadState = () => {
+        status.textContent = book.isRead ? 'Прочитана' : 'Не прочитана';
+        toggleBtn.textContent = book.isRead ? 'Отметить непрочитанной' : 'Отметить прочитанной';
     };
-timerToTen();
 
+    toggleBtn.addEventListener('click', async () => {
+        toggleBtn.disabled = true;
 
-
-// 4)
-// Реализуйте таймер обратного отсчёта, который считает время от 10 секунд до нуля,
-// с кнопками start, stop и reset, на 0 он останавливается
-
-const startButton = document.querySelector('#start');
-const stopButton = document.querySelector('#stop');
-const resetButton = document.querySelector('#reset');
-const timerDiv = document.querySelector('.timer');
-let activeTimer = null;
-startButton.onclick = () => {
-    console.log(1123123124)
-    if (activeTimer) {return}
-    activeTimer = setInterval(() => {
-        if (timerDiv.textContent > 0) {
-            timerDiv.textContent--
+        try {
+            const updated = await updateBook(book.id, { ...book, isRead: !book.isRead });
+            book.isRead = updated.isRead;
+            showReadState();
+        } catch (err) {
+            console.warn('Не удалось обновить книгу:', err.message);
+        } finally {
+            toggleBtn.disabled = false;
         }
-    },1000)
-}
-stopButton.onclick = () => {
-    clearInterval(activeTimer);
-    activeTimer = null;
-}
+    });
 
-resetButton.onclick = () => {
-    clearInterval(activeTimer);
-    activeTimer = null;
-    timerDiv.textContent = 10;
-}
+    deleteBtn.addEventListener('click', async () => {
+        deleteBtn.disabled = true;
 
-//5) Создать блок 150 на 150 пикселей и получить его через дом элементы при нажатии на которую будет
-// меняться его задний фон при повторном нажатии будет убираться цвет заднего фона - выполните эту
-// задачу с использованием classList и его методов
+        try {
+            await deleteBook(book.id);
+            li.remove();
+            if (!list.children.length) showEmpty();
+        } catch (err) {
+            deleteBtn.disabled = false;
+            console.warn('Не удалось удалить книгу:', err.message);
+        }
+    });
 
-const blockElement = document.querySelector('#block');
-blockElement.addEventListener('click', () => {
-    blockElement.classList.toggle('active');
-})
+    showReadState();
+    li.append(title, author, year, status, toggleBtn, deleteBtn);
 
+    return li;
+};
 
-//6) Отправить GET запрос на такой JSON и создать файл test.json и на него делать запрос
-// Пример JSON
-//
-// {
-//   "key1": "value",
-//   "key2": "value",
-//   "key3": "value"
-// }
-//
-// Используйте XHR и выведи полученные данные в консоль
+const appendBooks = (books) => {
+    removeEmpty();
 
-const xhr = new XMLHttpRequest();
+    books.forEach(book => {
+        if (!list.querySelector(`[data-id="${book.id}"]`)) {
+            list.append(createBookItem(book));
+        }
+    });
+};
 
-xhr.open('GET', 'test.json');
-
-xhr.onload =  () => {
-    if (xhr.status === 200) {
-        const data = JSON.parse(xhr.responseText);
-        console.log(data);
-    } else {
-        console.error('Ошибка:', xhr.status);
+const loadBooks = async (reset = true) => {
+    if (reset) {
+        page = 1;
+        list.innerHTML = '';
+        loadMoreBtn.hidden = true;
     }
-};
 
-xhr.onerror = function () {
-    console.error('Ошибка сети');
-};
+    const query = buildQuery();
+    urlText.textContent = `${books_API}?${query}`;
+    loadMoreBtn.disabled = true;
 
-xhr.send();
-
-//7) Поиск пользователя по логину и отображение карточки (если найден),
-// если пользователь не найден вывести соответсвующее сообщение. Если запрос не проходит успешно,
-// то отобразить тоже соответствующее сообщение. Нужно делать запрос на ниже json при нажатии на кнопку
-// проверить. Создать самому users.json и на него делать запрос
-//
-// <input type="text" id="loginInput" placeholder="Введите логин">
-// <button id="checkBtn">Проверить</button>
-//
-// <div id="userCard"></div>
-// <p id="message"></p>
-//
-// ‘json’ файл должен содержать и создать его необходимо
-// [
-//   {
-//     "login": "admin",
-//     "role": "Администратор",
-//     "email": "admin@gmail.com"
-//     "image": ""
-//   },
-//   {
-//     "login": "user",
-//     "role": "Пользователь",
-//     "email": "user@gmail.com"
-//     "image": ""
-//   }
-// ]
-
-const loginInput = document.querySelector('#loginInput');
-const checkBtn = document.querySelector('#checkBtn');
-const userCard = document.querySelector('#userCard');
-const message = document.querySelector('#message');
-
-
-
-checkBtn.onclick = () => {
-    userCard.innerHTML = '';
-    message.textContent = '';
-    let loginSearch = loginInput.value.trim()
-    fetch("users.json")
-        .then(res => {
-            if (!res.ok) throw new Error('Ошибка запроса');
-            return res.json();
-        })
-        .then(data => {
-           const user = data.find((user) => user.login === loginSearch)
-            if (user) {
-                userCard.innerHTML = `
-    <h3>${user.login}</h3>
-    <p>Роль: ${user.role}</p>
-    <p>Email: ${user.email}</p>
-    ${user.image ? `<img src="${user.image}" alt="${user.login}">` : ''}
-`;            }
-            else {
-                message.textContent = 'Пользователь не найден';
-            }
-
-        }).catch(error => {
-        console.warn(error);
-        message.textContent = 'Не удалось загрузить данные';
-    });
-}
-
-
-
-//8) Напишите три функции, каждая из которых возвращает Promise, разрешающийся через setTimeout
-// (например, имитация загрузки данных пользователя, постов и комментариев с разной задержкой - 1с, 2с, 3с).
-// Используя Promise.all(), дождитесь выполнения всех трёх и выведите объединённый результат в консоль.
-// Если хотя бы один Promise завершится с ошибкой (reject), обработайте это через .catch().
-
-
-
-function getUser() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({ id: 1, name: 'Анна' });
-        }, 1000);
-    });
-}
-
-function getPosts() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve([
-                { id: 1, title: 'Первый пост' },
-                { id: 2, title: 'Второй пост' }
-            ]);
-        }, 2000);
-    });
-}
-
-function getComments() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve([
-                { id: 1, text: 'Отличный пост!' },
-                { id: 2, text: 'Спасибо за информацию' }
-            ]);
-        }, 3000);
-    });
-}
-
-Promise.all([getUser(), getPosts(), getComments()])
-    .then(([user, posts, comments]) => {
-        console.log({ user, posts, comments });
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-    });
-
-
-//9) Реализуйте функцию getUserData(id), которая с помощью fetch и async/await делает
-// GET-запрос к https://jsonplaceholder.typicode.com/users/{id}, оборачивает вызов в
-// try/catch/finally, в finally выводит "Запрос завершён" независимо от результата.
-
-const getUserData = async (id) => {
     try {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-        if (!res.ok) throw new Error(`Ошибка запроса: ${res.status}`);
-        const data = await res.json();
-        console.log(data);
-    } catch (error) {
-        console.error('Не удалось получить данные:', error);
+        const books = await getBooks(query);
+
+        appendBooks(books);
+        if (!list.children.length) showEmpty();
+
+        loadMoreBtn.hidden = books.length < Number(query.get('limit'));
+    } catch (err) {
+        if (err.status === 404) {
+            if (!list.children.length) showEmpty();
+            loadMoreBtn.hidden = true;
+        } else {
+            if (!reset) page -= 1;
+            console.warn('Не удалось загрузить книги:', err.message);
+        }
     } finally {
-        console.log('Запрос завершён');
+        loadMoreBtn.disabled = false;
     }
 };
 
-getUserData(1);
+const applyFilters = () => {
+    syncAddress();
+    loadBooks(true);
+};
 
-//10) Создать POST запрос на https://jsonplaceholder.typicode.com/photos и вывести то,
-// что отдает сервер при успешном запросе и если вдруг будет ошибка, тоже вывести текст.
-const createPhoto = async () => {
+[completedSelect, sortBySelect, orderSelect, limitInput].forEach(control => {
+    control.addEventListener('change', applyFilters);
+});
+
+searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applyFilters, 400);
+});
+
+loadMoreBtn.addEventListener('click', () => {
+    page += 1;
+    loadBooks(false);
+});
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+    const book = {
+        title: data.title.trim(),
+        author: data.author?.trim() ?? '',
+        year: data.year ? Number(data.year) : 0,
+        isRead: Boolean(form.elements.isRead?.checked),
+    };
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+
     try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/photos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                albumId: 1,
-                title: 'Моё новое фото',
-                url: 'https://example.com/photo.jpg',
-                thumbnailUrl: 'https://example.com/thumb.jpg'
-            })
-        });
-
-        if (!res.ok) throw new Error(`Ошибка запроса: ${res.status}`);
-
-        const data = await res.json();
-        console.log('Ответ сервера:', data);
-    } catch (error) {
-        console.error('Не удалось отправить данные:', error.message);
+        const created = await createBook(book);
+        appendBooks([created]);
+        form.reset();
+    } catch (err) {
+        console.warn('Не удалось добавить книгу:', err.message);
+    } finally {
+        submitBtn.disabled = false;
     }
-};
+});
 
-createPhoto();
+restoreFromAddress();
+loadBooks(true);
