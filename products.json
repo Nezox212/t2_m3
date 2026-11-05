@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "apple",
+    "price": 99,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "banana",
+    "price": 149,
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "peach",
+    "price": 199,
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "name": "pineapple",
+    "price": 399,
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "carrot",
+    "price": 79,
+    "inStock": false
+  }
+]

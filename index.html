@@ -1,43 +1,72 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
-    <title>REST и MockAPI</title>
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<div class="wrapper">
-    <div class="controls">
-        <select id="completed">
-            <option value="">Все</option>
-            <option value="true">Прочитанные</option>
-            <option value="false">Не прочитанные</option>
-        </select>
-        <input id="search" placeholder="Поиск">
-        <select id="sortBy">
-            <option value=""> По году</option>
-            <option value="title">По названию</option>
-        </select>
-        <select id="order">
-            <option value="asc">По возрастанию</option>
-            <option value="desc">По убыванию</option>
-        </select>
-        <input id="limit" type="number" min="1" value="5">
-    </div>
 
-    <p class="url"></p>
 
-    <form>
-        <input name="title" placeholder="Новая книга" required>
-        <button type="submit">Добавить</button>
-    </form>
-
-    <ul class="tasks">
-\    </ul>
-    <button class="load-more" hidden>Загрузить ещё</button>
+<div>
+    <button style="background-color: red">red</button>
+    <button style="background-color: green">green</button>
+    <button style="background-color: blue">blue</button>
+    <button style="background-color: yellow">yellow</button>
+    <button style="background-color: purple">purple</button>
 </div>
 
-<script type="module" src="./main.js"></script>
+
+
+    <button class="open">open</button>
+<div id="menu">
+    <div class="menuText" style="font-size: 48px">MENU</div>
+
+
+    texttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttexttexttexttexttext
+    texttexttexttext
+    texttexttexttext
+    texttexttext
+</div>
+
+<div class="timeMS" style="color:purple">0</div>
+
+
+
+<div class="productCards"></div>
+
+
+
+
+
+
+<input type="text" placeholder="Введите название товара для поиска" class="find">
+<button class="load">загрузить</button>
+<div class="products"></div>
+<script src="main.js"></script>
 </body>
 </html>
